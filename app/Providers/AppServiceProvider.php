@@ -11,7 +11,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // Bind the StockServiceInterface to the AlphaVantageStockService
+        $this->app->bind(
+            \App\Contracts\StockServiceInterface::class,
+            \App\Services\AlphaVantageStockService::class
+        );
     }
 
     /**
