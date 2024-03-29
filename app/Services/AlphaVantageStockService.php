@@ -6,14 +6,17 @@ use App\Contracts\StockServiceInterface;
 use App\Models\Company;
 use App\Models\StockPrice;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
 
 class AlphaVantageStockService implements StockServiceInterface
 {
     public function fetchStockData(): void
     {
-        $companies = Company::all();
+        $cache_key = 'companies';
+        $companies = Cache::remember($cache_key, 1440, function () {
+            return Company::all();
+        });
 
         foreach ($companies as $company) {
             $this->fetchStockDataForCompany($company);
@@ -22,6 +25,12 @@ class AlphaVantageStockService implements StockServiceInterface
 
     public function fetchStockDataForCompany(Company $company): void
     {
+        $cache_key = 'stock_data_'.$company->symbol;
+
+        if (Cache::has($cache_key)) {
+            return;
+        }
+
         // Fetch stock data for the given company from the Alpha Vantage API
         try {
             $response = Http::get('https://www.alphavantage.co/query', [
@@ -48,6 +57,8 @@ class AlphaVantageStockService implements StockServiceInterface
         if ($this->validatePriceData($prices_data)) {
             // Store the stock data in the database
             $this->storeStockData($prices_data, $company);
+            // Cache the stock data for 1 minute
+            Cache::put($cache_key, $prices_data, 1);
         } else {
             // Log an error if the price data is invalid
             $this->logError('Invalid price data for company: '.$company->symbol);

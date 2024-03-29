@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schedule;
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote')->everySecond();
+})->purpose('Display an inspiring quote')->daily();
 
 Schedule::command('app:fetch-stock-data')
     ->everyMinute()
