@@ -9,7 +9,6 @@ trends.
 - [Usage](#usage)
 - [Code Style and Functionalities](#💻-code-style-and-functionalities)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## 🛠️ Installation 
 
@@ -134,10 +133,5 @@ To contribute to this project, follow these steps:
 5. Open a pull request.
 
 Please ensure that your contributions adhere to the [code of conduct](CODE_OF_CONDUCT.md).
-
-## 📝 License 
-
-This project is licensed under the [MIT License](LICENSE).
-
 
 Thanks 😊🎉👨‍💻
