@@ -32,14 +32,10 @@ class AlphaVantageStockService implements StockServiceInterface
             return;
         }
 
+        $response = $this->makeHttpRequest($company->symbol);
+
         // Fetch stock data for the given company from the Alpha Vantage API
         try {
-            $response = Http::get('https://www.alphavantage.co/query', [
-                'function' => 'GLOBAL_QUOTE',
-                'symbol' => $company->symbol,
-                'apikey' => config('services.alpha_vantage.api_key'),
-            ]);
-            Log::info('Fetching stock data for company: '.$company->symbol, ['response' => $response->json()]);
             if ($response->successful()) {
                 $prices_data = $response->json();
             } else {
@@ -103,7 +99,17 @@ class AlphaVantageStockService implements StockServiceInterface
     public function logError(string $message): void
     {
         // Log the error message
-        logger()->error($message);
+        Log::error($message);
+    }
+
+    protected function makeHttpRequest(string $symbol)
+    {
+        // Make the HTTP request to the Alpha Vantage API
+        return Http::get('https://www.alphavantage.co/query', [
+            'function' => 'GLOBAL_QUOTE',
+            'symbol' => $symbol,
+            'apikey' => config('services.alpha_vantage.api_key'),
+        ]);
     }
 
     public function getValue($value)
