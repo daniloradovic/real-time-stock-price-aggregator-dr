@@ -115,6 +115,12 @@ The `latest` method fetches the latest stock prices for each symbol from the dat
 
 The `latest` method fetches the latest stock prices for each symbol from the database, caches the result for 1 minute, and returns it as a JSON response. If the data is already in the cache, it retrieves from there instead of querying the database.
 
+### 👀 Quick preview of user interface
+
+<a href="https://youtu.be/6hKMJYsQsDI">
+  <img src="https://img.youtube.com/vi/6hKMJYsQsDI/maxresdefault.jpg" alt="Watch the video" width="300"/>
+</a>
+
 ## 🤝 Contributing 
 
 Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request.
