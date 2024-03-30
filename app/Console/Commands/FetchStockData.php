@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use App\Contracts\StockServiceInterface;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Log;
 
 class FetchStockData extends Command
 {

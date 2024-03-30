@@ -1,16 +1,8 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schedule;
-
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote')->daily();
 
 Schedule::command('app:fetch-stock-data')
     ->everyMinute()
     ->withoutOverlapping()
-    ->onOneServer()
-    ->runInBackground()
-    ->appendOutputTo('storage/logs/stock-data-fetch.log');
+    ->appendOutputTo(storage_path('logs/stock_data.log'));

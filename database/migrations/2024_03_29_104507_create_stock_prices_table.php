@@ -22,7 +22,7 @@ return new class extends Migration
             $table->decimal('previous_close', 8, 4);
             $table->decimal('change', 8, 4);
             $table->decimal('change_percent', 8, 4);
-            $table->dateTime('date')->default(now());
+            $table->dateTime('date')->nullable();
             $table->string('symbol');
             $table->timestamps();
             // Add indexes

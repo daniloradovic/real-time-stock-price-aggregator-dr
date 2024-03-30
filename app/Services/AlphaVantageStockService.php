@@ -8,6 +8,7 @@ use App\Models\StockPrice;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class AlphaVantageStockService implements StockServiceInterface
 {
@@ -38,7 +39,7 @@ class AlphaVantageStockService implements StockServiceInterface
                 'symbol' => $company->symbol,
                 'apikey' => config('services.alpha_vantage.api_key'),
             ]);
-
+            Log::info('Fetching stock data for company: '.$company->symbol, ['response' => $response->json()]);
             if ($response->successful()) {
                 $prices_data = $response->json();
             } else {

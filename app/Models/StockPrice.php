@@ -20,6 +20,6 @@ class StockPrice extends Model
         'change',
         'change_percent',
         'symbol',
+        'date',
     ];
-    
 }
