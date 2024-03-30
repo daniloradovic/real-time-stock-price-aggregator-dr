@@ -3,7 +3,7 @@
 API and provides comprehensive reporting functionalities for analyzing stock
 trends.
 
-## Table of Contents 📚
+## 📚 Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -64,7 +64,7 @@ Or with phpunit with test coverage
 
 ## 💻 Code Style and Functionalities
 
-### Task Scheduling
+### 🗓️ Task Scheduling
 
 This snippet schedules the `app:fetch-stock-data` command to run every minute. 
 
@@ -78,7 +78,7 @@ This snippet schedules the `app:fetch-stock-data` command to run every minute.
 
 This scheduling is done in the `console.php` file, which is where you define all of your scheduled tasks in a Laravel application.
 
-### FetchStockData Command
+### 📈 FetchStockData Command
 
 `FetchStockData` is a console command that fetches stock data from the API and stores it in the database.
 
@@ -97,7 +97,7 @@ This scheduling is done in the `console.php` file, which is where you define all
 `FetchStockData` uses dependency injection to receive an instance of `StockServiceInterface`. This design allows the command to be loosely coupled, making it easier to test and maintain.
 
 
-### AlphaVantageStockService
+### 🧰 AlphaVantageStockService
 
 `AlphaVantageStockService` is a service class implementing `StockServiceInterface`. It fetches stock data from an API and stores it in the database.
 
@@ -107,7 +107,7 @@ This scheduling is done in the `console.php` file, which is where you define all
 
 2. **fetchStockDataForCompany**: Fetches stock data for a specific company. It checks the cache first and if the data is not available, it fetches from the API.
 
-### API route `/api/latest-prices`
+### 💸 API route `/api/latest-prices`
 
 The `latest` method fetches the latest stock prices for each symbol from the database and caches the result for 1 minute.
 
