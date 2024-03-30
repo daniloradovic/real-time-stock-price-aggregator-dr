@@ -116,6 +116,8 @@ The `latest` method fetches the latest stock prices for each symbol from the dat
 
 ### 👀 Quick preview of user interface
 
+By visiting a public page `/stocks` you should be able to check live preview.
+
 <a href="https://youtu.be/6hKMJYsQsDI">
   <img src="https://img.youtube.com/vi/6hKMJYsQsDI/maxresdefault.jpg" alt="Watch the video" width="300"/>
 </a>
