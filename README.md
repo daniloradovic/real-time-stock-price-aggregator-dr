@@ -132,6 +132,5 @@ To contribute to this project, follow these steps:
 4. Push to the original branch: `git push origin feature/your-feature-name`.
 5. Open a pull request.
 
-Please ensure that your contributions adhere to the [code of conduct](CODE_OF_CONDUCT.md).
 
 Thanks 😊🎉👨‍💻
