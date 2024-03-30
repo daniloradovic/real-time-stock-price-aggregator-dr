@@ -59,4 +59,4 @@ jobs:
     - name: Execute tests (Unit and Feature tests) using PHPUnit
       env:
         DB_PORT: ${{ job.services.mysql.ports[3306] }}
-      run: ./vendor/bin/phpunit --colors=never
+      run: ./vendor/bin/phpunit --coverage-text --colors=never
